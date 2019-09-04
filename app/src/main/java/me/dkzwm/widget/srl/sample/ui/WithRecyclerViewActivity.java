@@ -61,7 +61,9 @@ public class WithRecyclerViewActivity extends AppCompatActivity {
                                         List<String> list = DataUtil.createList(mCount, 60);
                                         mCount = list.size();
                                         mAdapter.insertData(list);
+                                        mRefreshLayout.setDurationToClose(0);
                                         mRefreshLayout.refreshComplete();
+                                        mRefreshLayout.setDurationToClose(350);
                                     }
                                 },
                                 2000);
