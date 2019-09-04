@@ -38,8 +38,8 @@ public class RecyclerViewAdapter
 
     public void insertData(List<String> list) {
         int size = mList.size();
-        mList.addAll(0,list);
-        notifyItemRangeInserted(0,list.size());
+        mList.addAll(0, list);
+        notifyItemRangeInserted(0, list.size());
     }
 
     public void appendData(List<String> list) {

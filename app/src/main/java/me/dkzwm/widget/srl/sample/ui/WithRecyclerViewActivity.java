@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
@@ -40,14 +39,14 @@ public class WithRecyclerViewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle(R.string.with_recyclerView);
         mRecyclerView = findViewById(R.id.recyclerView_with_recyclerView);
-//        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+        //        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
         mAdapter = new RecyclerViewAdapter(this, getLayoutInflater());
         mRecyclerView.setAdapter(mAdapter);
         mRefreshLayout = findViewById(R.id.smoothRefreshLayout_with_recyclerView);
         mRefreshLayout.setDisableLoadMore(false);
-//        mRefreshLayout.materialStyle();
+        //        mRefreshLayout.materialStyle();
         mRefreshLayout.setEnableAutoLoadMore(true);
         mRefreshLayout.setEnableAutoRefresh(true);
         mRefreshLayout.setOnRefreshListener(

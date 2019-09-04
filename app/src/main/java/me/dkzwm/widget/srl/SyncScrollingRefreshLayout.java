@@ -1,9 +1,7 @@
-package me.dkzwm.widget.srl.sample.widget;
+package me.dkzwm.widget.srl;
 
 import android.content.Context;
 import android.util.AttributeSet;
-
-import me.dkzwm.widget.srl.MaterialSmoothRefreshLayout;
 
 public class SyncScrollingRefreshLayout extends MaterialSmoothRefreshLayout {
     public SyncScrollingRefreshLayout(Context context) {
@@ -23,6 +21,16 @@ public class SyncScrollingRefreshLayout extends MaterialSmoothRefreshLayout {
         super.moveHeaderPos(delta);
         if (delta < 0) {
             compatLoadMoreScroll(getScrollTargetView(), delta);
+        }
+    }
+
+    protected void notifyUIRefreshComplete(boolean useScroll, boolean notifyViews) {
+        super.notifyUIRefreshComplete(false, notifyViews);
+        if (useScroll) {
+            if (mScrollChecker.isFlingBack()) {
+                mScrollChecker.stop();
+            }
+            tryScrollBackToTopByPercentDuration();
         }
     }
 }
